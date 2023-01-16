@@ -1,0 +1,62 @@
+# Nmap 7.91 scan initiated Wed Jan 13 18:46:19 2021 as: nmap -sC -sV --script vuln -Pn -oN alfred.nmap -vv 10.10.213.14
+Nmap scan report for 10.10.213.14
+Host is up, received user-set (0.28s latency).
+Scanned at 2021-01-13 18:46:30 IST for 1270s
+Not shown: 997 filtered ports
+Reason: 997 no-responses
+PORT     STATE SERVICE    REASON          VERSION
+80/tcp   open  http       syn-ack ttl 127 Microsoft IIS httpd 7.5
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+|_http-server-header: Microsoft-IIS/7.5
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-vuln-cve2015-1635: 
+|   VULNERABLE:
+|   Remote Code Execution in HTTP.sys (MS15-034)
+|     State: VULNERABLE
+|     IDs:  CVE:CVE-2015-1635
+|       A remote code execution vulnerability exists in the HTTP protocol stack (HTTP.sys) that is
+|       caused when HTTP.sys improperly parses specially crafted HTTP requests. An attacker who
+|       successfully exploited this vulnerability could execute arbitrary code in the context of the System account.
+|           
+|     Disclosure date: 2015-04-14
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-1635
+|_      https://technet.microsoft.com/en-us/library/security/ms15-034.aspx
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+| vulners: 
+|   cpe:/a:microsoft:internet_information_server:7.5: 
+|     	MSF:AUXILIARY/DOS/WINDOWS/FTP/IIS75_FTPD_IAC_BOF	10.0	https://vulners.com/metasploit/MSF:AUXILIARY/DOS/WINDOWS/FTP/IIS75_FTPD_IAC_BOF	*EXPLOIT*
+|     	EDB-ID:15803	10.0	https://vulners.com/exploitdb/EDB-ID:15803	*EXPLOIT*
+|     	CVE-2010-3972	10.0	https://vulners.com/cve/CVE-2010-3972
+|     	SSV:20122	9.3	https://vulners.com/seebug/SSV:20122	*EXPLOIT*
+|     	CVE-2010-2730	9.3	https://vulners.com/cve/CVE-2010-2730
+|     	CVE-2010-1256	8.5	https://vulners.com/cve/CVE-2010-1256
+|     	SSV:60466	5.0	https://vulners.com/seebug/SSV:60466	*EXPLOIT*
+|     	CVE-2012-2532	5.0	https://vulners.com/cve/CVE-2012-2532
+|     	SSV:20121	4.3	https://vulners.com/seebug/SSV:20121	*EXPLOIT*
+|     	MSF:AUXILIARY/DOS/WINDOWS/HTTP/MS10_065_II6_ASP_DOS	4.3	https://vulners.com/metasploit/MSF:AUXILIARY/DOS/WINDOWS/HTTP/MS10_065_II6_ASP_DOS	*EXPLOIT*
+|     	EDB-ID:15167	4.3	https://vulners.com/exploitdb/EDB-ID:15167	*EXPLOIT*
+|     	CVE-2010-1899	4.3	https://vulners.com/cve/CVE-2010-1899
+|     	SSV:60465	2.1	https://vulners.com/seebug/SSV:60465	*EXPLOIT*
+|_    	CVE-2012-2531	2.1	https://vulners.com/cve/CVE-2012-2531
+3389/tcp open  tcpwrapped syn-ack ttl 127
+|_ssl-ccs-injection: No reply from server (TIMEOUT)
+|_sslv2-drown: 
+8080/tcp open  http       syn-ack ttl 127 Jetty 9.4.z-SNAPSHOT
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-enum: 
+|_  /robots.txt: Robots file
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+|_http-server-header: Jetty(9.4.z-SNAPSHOT)
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Jan 13 19:07:41 2021 -- 1 IP address (1 host up) scanned in 1281.38 seconds
