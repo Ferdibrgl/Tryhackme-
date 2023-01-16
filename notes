@@ -1,0 +1,20 @@
+[+]Recon
+Nmap
+{{
+    [0-1000] - 3 ports open
+    [-p-] - 9 open ports
+}}
+
+[+]Vulnerability
+{{
+    Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
+}}
+
+[+]Exploitation
+{{
+    windows/smb/ms17_010_eternalblue - metasploit
+    after gaining access to the machine escalate to the process with privilege
+    **spool.exe** Printing Service 
+}}
+
+[+]
