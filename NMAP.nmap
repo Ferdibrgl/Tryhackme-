@@ -1,0 +1,83 @@
+# Nmap 7.80 scan initiated Tue Jan 19 06:57:04 2021 as: nmap -sC -sV --script vuln -vv -p- -oN NMAP.nmap 10.10.52.73
+Nmap scan report for ip-10-10-52-73.eu-west-1.compute.internal (10.10.52.73)
+Host is up, received arp-response (0.00056s latency).
+Scanned at 2021-01-19 06:57:14 UTC for 331s
+Not shown: 65532 filtered ports
+Reason: 65532 no-responses
+PORT     STATE SERVICE            REASON          VERSION
+80/tcp   open  http               syn-ack ttl 128 Microsoft IIS httpd 8.5
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| http-csrf: 
+| Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=ip-10-10-52-73.eu-west-1.compute.internal
+|   Found the following possible CSRF vulnerabilities: 
+|     
+|     Path: http://ip-10-10-52-73.eu-west-1.compute.internal:80/
+|     Form id: aspnetform
+|     Form action: /
+|     
+|     Path: http://ip-10-10-52-73.eu-west-1.compute.internal:80/archive
+|     Form id: aspnetform
+|     Form action: /archive
+|     
+|     Path: http://ip-10-10-52-73.eu-west-1.compute.internal:80/category/BlogEngineNET
+|     Form id: aspnetform
+|     Form action: /category/BlogEngineNET
+|     
+|     Path: http://ip-10-10-52-73.eu-west-1.compute.internal:80/post/welcome-to-hack-park
+|     Form id: aspnetform
+|_    Form action: /post/welcome-to-hack-park
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-enum: 
+|   /calendar/cal_search.php: ExtCalendar
+|   /robots.txt: Robots file
+|   /calendar/cal_cat.php: Calendarix
+|   /archive/: Potentially interesting folder
+|   /archives/: Potentially interesting folder
+|   /author/: Potentially interesting folder
+|   /contact/: Potentially interesting folder
+|   /contacts/: Potentially interesting folder
+|   /search/: Potentially interesting folder
+|_  /search-ui/: Potentially interesting folder
+| http-fileupload-exploiter: 
+|   
+|_    Couldn't find a file-type field.
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+|_http-server-header: Microsoft-IIS/8.5
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+3389/tcp open  ssl/ms-wbt-server? syn-ack ttl 128
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+| ssl-dh-params: 
+|   VULNERABLE:
+|   Diffie-Hellman Key Exchange Insufficient Group Strength
+|     State: VULNERABLE
+|       Transport Layer Security (TLS) services that use Diffie-Hellman groups
+|       of insufficient strength, especially those using one of a few commonly
+|       shared groups, may be susceptible to passive eavesdropping attacks.
+|     Check results:
+|       WEAK DH GROUP 1
+|             Cipher Suite: TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
+|             Modulus Type: Safe prime
+|             Modulus Source: RFC2409/Oakley Group 2
+|             Modulus Length: 1024
+|             Generator Length: 1024
+|             Public Key Length: 1024
+|     References:
+|_      https://weakdh.org
+|_sslv2-drown: 
+5985/tcp open  http               syn-ack ttl 128 Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_clamav-exec: ERROR: Script execution failed (use -d to debug)
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-jsonp-detection: Couldn't find any JSONP endpoints.
+|_http-litespeed-sourcecode-download: Request with null byte did not work. This web server might not be vulnerable
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+|_http-wordpress-users: [Error] Wordpress installation was not found. We couldn't find wp-login.php
+MAC Address: 02:A5:89:E8:05:FF (Unknown)
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Jan 19 07:02:46 2021 -- 1 IP address (1 host up) scanned in 341.59 seconds

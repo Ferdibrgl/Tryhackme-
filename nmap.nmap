@@ -1,0 +1,19 @@
+# Nmap 7.80 scan initiated Fri Apr  9 10:56:36 2021 as: nmap -sV -vv -oN nmap.nmap 10.10.31.111
+Nmap scan report for ip-10-10-31-111.eu-west-1.compute.internal (10.10.31.111)
+Host is up, received arp-response (0.00095s latency).
+Scanned at 2021-04-09 10:56:38 UTC for 11s
+Not shown: 994 closed ports
+Reason: 994 resets
+PORT    STATE SERVICE     REASON         VERSION
+22/tcp  open  ssh         syn-ack ttl 64 OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+80/tcp  open  http        syn-ack ttl 64 Apache httpd 2.4.18 ((Ubuntu))
+110/tcp open  pop3        syn-ack ttl 64 Dovecot pop3d
+139/tcp open  netbios-ssn syn-ack ttl 64 Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+143/tcp open  imap        syn-ack ttl 64 Dovecot imapd
+445/tcp open  netbios-ssn syn-ack ttl 64 Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+MAC Address: 02:CF:EC:1A:E4:35 (Unknown)
+Service Info: Host: SKYNET; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Apr  9 10:56:50 2021 -- 1 IP address (1 host up) scanned in 13.75 seconds

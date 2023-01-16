@@ -1,0 +1,38 @@
+# Nmap 7.80 scan initiated Mon Jan 18 05:35:51 2021 as: nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse -oN smb_enum.nmap 10.10.8.60
+Nmap scan report for ip-10-10-8-60.eu-west-1.compute.internal (10.10.8.60)
+Host is up (0.00016s latency).
+
+PORT    STATE SERVICE
+445/tcp open  microsoft-ds
+MAC Address: 02:DE:64:07:51:DD (Unknown)
+
+Host script results:
+| smb-enum-shares: 
+|   account_used: guest
+|   \\10.10.8.60\IPC$: 
+|     Type: STYPE_IPC_HIDDEN
+|     Comment: IPC Service (kenobi server (Samba, Ubuntu))
+|     Users: 1
+|     Max Users: <unlimited>
+|     Path: C:\tmp
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.8.60\anonymous: 
+|     Type: STYPE_DISKTREE
+|     Comment: 
+|     Users: 0
+|     Max Users: <unlimited>
+|     Path: C:\home\kenobi\share
+|     Anonymous access: READ/WRITE
+|     Current user access: READ/WRITE
+|   \\10.10.8.60\print$: 
+|     Type: STYPE_DISKTREE
+|     Comment: Printer Drivers
+|     Users: 0
+|     Max Users: <unlimited>
+|     Path: C:\var\lib\samba\printers
+|     Anonymous access: <none>
+|_    Current user access: <none>
+|_smb-enum-users: ERROR: Script execution failed (use -d to debug)
+
+# Nmap done at Mon Jan 18 05:35:52 2021 -- 1 IP address (1 host up) scanned in 0.57 seconds

