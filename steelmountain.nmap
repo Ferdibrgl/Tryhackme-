@@ -1,0 +1,73 @@
+# Nmap 7.91 scan initiated Fri Jan  8 21:25:41 2021 as: nmap -sT -sV -sC --script vuln -oN steelmountain.nmap -Pn 10.10.171.239
+Nmap scan report for 10.10.171.239
+Host is up (0.20s latency).
+Not shown: 985 closed ports
+PORT      STATE    SERVICE            VERSION
+80/tcp    open     http               Microsoft IIS httpd 8.5
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+135/tcp   open     msrpc              Microsoft Windows RPC
+139/tcp   open     netbios-ssn        Microsoft Windows netbios-ssn
+445/tcp   open     microsoft-ds       Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+1216/tcp  filtered etebac5
+3389/tcp  open     ssl/ms-wbt-server?
+|_ssl-ccs-injection: No reply from server (TIMEOUT)
+|_sslv2-drown: 
+|_tls-ticketbleed: ERROR: Script execution failed (use -d to debug)
+3889/tcp  filtered dandv-tester
+8080/tcp  open     http               HttpFileServer httpd 2.3
+|_http-csrf: Couldn't find any CSRF vulnerabilities.
+|_http-dombased-xss: Couldn't find any DOM based XSS.
+| http-fileupload-exploiter: 
+|   
+|_    Couldn't find a file-type field.
+| http-method-tamper: 
+|   VULNERABLE:
+|   Authentication bypass by HTTP verb tampering
+|     State: VULNERABLE (Exploitable)
+|       This web server contains password protected resources vulnerable to authentication bypass
+|       vulnerabilities via HTTP verb tampering. This is often found in web servers that only limit access to the
+|        common HTTP methods and in misconfigured .htaccess files.
+|              
+|     Extra information:
+|       
+|   URIs suspected to be vulnerable to HTTP verb tampering:
+|     /~login [GENERIC]
+|   
+|     References:
+|       http://www.imperva.com/resources/glossary/http_verb_tampering.html
+|       http://capec.mitre.org/data/definitions/274.html
+|       https://www.owasp.org/index.php/Testing_for_HTTP_Methods_and_XST_%28OWASP-CM-008%29
+|_      http://www.mkit.com.ar/labs/htexploit/
+|_http-server-header: HFS 2.3
+|_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
+| http-vuln-cve2011-3192: 
+|   VULNERABLE:
+|   Apache byterange filter DoS
+|     State: VULNERABLE
+|     IDs:  BID:49303  CVE:CVE-2011-3192
+|       The Apache web server is vulnerable to a denial of service attack when numerous
+|       overlapping byte ranges are requested.
+|     Disclosure date: 2011-08-19
+|     References:
+|       https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2011-3192
+|       https://www.tenable.com/plugins/nessus/55976
+|       https://seclists.org/fulldisclosure/2011/Aug/175
+|_      https://www.securityfocus.com/bid/49303
+49152/tcp open     msrpc              Microsoft Windows RPC
+49153/tcp open     msrpc              Microsoft Windows RPC
+49154/tcp open     msrpc              Microsoft Windows RPC
+49155/tcp open     msrpc              Microsoft Windows RPC
+49157/tcp open     msrpc              Microsoft Windows RPC
+49163/tcp open     msrpc              Microsoft Windows RPC
+52822/tcp filtered unknown
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_samba-vuln-cve-2012-1182: No accounts left to try
+|_smb-vuln-ms10-054: false
+|_smb-vuln-ms10-061: No accounts left to try
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jan  8 21:52:40 2021 -- 1 IP address (1 host up) scanned in 1619.34 seconds

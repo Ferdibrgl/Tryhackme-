@@ -1,0 +1,50 @@
+NMAP - Network Mapping
+{{
+	open ports - 6
+	21 - ftp
+	22 - ssh
+	139 - netbios-ssn
+	145 - " " "
+	3128 - http-proxy - Squid http proxy 3.5.12
+	3333 - http server - Apache httpd 2.4.18 ((Ubuntu))
+
+
+	**OS Detected** -- UBUNTU
+
+}}
+
+gobuster
+{{
+	found directories:
+	images - nan
+	index - nan
+	css - nan
+	js - nan
+	fonts - nan
+	internal - **Found Upload functionality**
+}}
+
+Burp
+{{
+	Upload malcious files to the server....Checking which extensions the server accept.
+	as stated in room : Running snippet attact
+	1.php
+	2.php3
+	3.php4
+	4.php5
+	5.phtml
+	Server accepts 5th extension.
+}}
+
+**Uploaded the payload to the server in .phtml format and got the reverse shell**
+
+
+Privilege Escalation
+{{
+	Method 1. Linenum script
+	Post : GTFOBins
+	Method 2. LinPeas
+}}
+
+
+	
