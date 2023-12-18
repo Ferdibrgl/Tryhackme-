@@ -1,3 +1,12 @@
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=200&pause=1000&color=54F740&background=00000001&random=false&width=435&lines=Ferdi+Birg%C3%BCl+Cyber+Security+Expert)](https://git.io/typing-svg)
+
+![logo](https://i.pinimg.com/736x/a5/b9/71/a5b97195240910b4d222e13d4335af50.jpg)
+
+[Master Cyber Security: Unlock the Secrets](https://youtu.be/A8cGX4InJU4?si=JAqzkDpNgAz1ydne)
+
+## siberrgram starts
+# Ferdi Birgül
+
 ## 1. Recon 
 NMAP Scan Results:
 
